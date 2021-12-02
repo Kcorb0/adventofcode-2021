@@ -1,17 +1,27 @@
 
+from re import A
+
+
 path = 'inputs/day1_input.txt'
 
-file = open(path, 'r').read().split('\n')
+file = open(path, 'r').readlines()
 
+values = [int(i.replace('\n', '')) for i in file]
+
+a = 0
+b = 3
+
+valsum = sum(values[a:b])
 count = 0
 
-cur_num = file[0]
+while b != len(values):
 
-for i in file:
-    
-    if i > cur_num:
+    a += 1
+    b += 1
+
+    if sum(values[a:b]) > valsum:
         count += 1
     
-    cur_num = i
+    valsum = sum(values[a:b])
 
 print(count)
