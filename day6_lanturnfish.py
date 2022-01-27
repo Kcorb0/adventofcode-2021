@@ -39,24 +39,30 @@ def growth_sim_2(sample, duration):
             new_sample[i] = sample.count(i)
 
     print(new_sample)
+    
     while duration > 0:
-
+        
         if new_sample[0] > 0:
             new_sample[8] += new_sample[0]
             new_sample[6] += new_sample[0]
+            new_sample[0] = 0
 
-        for x in range(0, 8):
-            
-            val = new_sample[x]
-            new_sample[x] += new_sample[x+1]
-            new_sample[x] -= val
+        zeros = new_sample[0]
         
-        print(new_sample)
+        for num in range(0, 9):
             
-        
+            if num == 8:
+                new_sample[8] = zeros
+
+            new_sample[num-1] = new_sample[num]
+            new_sample[num] = 0
+           
         duration -= 1
+
+        print(new_sample)
+        
 
     return new_sample
 
 #print(growth_sim(test_sample, 20))
-growth_sim_2(test_sample, 4)
+growth_sim_2(test_sample, 2)
