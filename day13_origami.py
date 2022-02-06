@@ -12,7 +12,7 @@ print(max_x, max_y)
 
 paper = [['.' for col in range(max_x+1)] for row in range(max_y+1)]
 
-test_map = None
+test_map = ['.']
 
 def map_points(paper_map):
 
